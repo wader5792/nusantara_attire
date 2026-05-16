@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Sewa Baju Adat & Profesi - Nusantara Attire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Palette warna baru menyesuaikan gambar mockup */
+            --color-header-bg: #bc9c82;     /* Warna cokelat muda di navbar & hero kiri */
+            --color-body-bg: #fbf6f0;       /* Warna cream pucat latar belakang */
+            --primary-color: #a37a52;       
+            --text-dark: #2c221e;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --smooth: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-body-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-body-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        /* --- NAVBAR BARU (Mengikuti Skema Warna Gambar) --- */
+        .navbar {
+            background-color: var(--color-header-bg);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s var(--smooth);
+        }
+        
+        .navbar-brand {
+            font-family: var(--font-sans);
+            font-weight: 600;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0 10px;
+            opacity: 1 !important;
+        }
+        .nav-link:hover {
+            color: #ffffff !important;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        
+        /* Tombol Hubungi Kami Kanan Atas */
+        .btn-contact-us {
+            background-color: #ebd9c8;
+            color: #4a3321 !important;
+            font-weight: 600;
+            padding: 8px 22px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-contact-us:hover {
+            background-color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* --- HERO SECTION BARU (Layout Belah 2 Warna & Melengkung Sesuai Gambar) --- */
+        .hero-section {
+            background-color: var(--color-body-bg);
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .hero-left-block {
+            background-color: var(--color-header-bg);
+            padding: 80px 0 120px 0;
+        }
+
+        @media (min-width: 992px) {
+            .hero-left-block {
+                padding: 130px 0;
+                border-bottom-right-radius: 60% 25%;
+                min-height: 520px;
+            }
+            .hero-right-badge-container {
+                position: absolute;
+                top: 50%;
+                right: 12%;
+                transform: translateY(-50%);
+                z-index: 10;
+                margin-top: 0 !important;
+            }
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+        }
+        .hero-title span {
+            color: #ffffff;
+            font-style: normal;
+        }
+
+        .hero-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        /* Tombol Interaktif Baru di Hero */
+        .btn-dark-pill {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-weight: 500;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-dark-pill:hover {
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        .btn-outline-pill {
+            border: 1px solid #1a1a1a;
+            color: #1a1a1a;
+            font-weight: 500;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-pill:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        /* Frame Logo Besar Tanpa Bulatan Putih */
+        .logo-display-container {
+            width: 280px;
+            height: 280px;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -40px auto 40px auto;
+        }
+
+        @media (min-width: 992px) {
+            .logo-display-container {
+                width: 360px;
+                height: 360px;
+                margin: 0;
+            }
+        }
+
+        .logo-display-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* --- Keunggulan Seksi --- */
+        .feature-card {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s var(--smooth);
+            box-shadow: 0 10px 30px rgba(163, 122, 82, 0.02);
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(163, 122, 82, 0.08);
+        }
+
+        .feature-icon-box {
+            width: 65px;
+            height: 65px;
+            background-color: #f4eee4;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            color: var(--primary-color);
+            font-size: 26px;
+            transition: all 0.4s var(--smooth);
+        }
+        .feature-card:hover .feature-icon-box {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- Galeri Katalog Dinamis --- */
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        @media (min-width: 768px) {
+            .section-title { font-size: 2.8rem; }
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px; height: 3px;
+            background-color: var(--primary-color);
+            bottom: -6px; left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .catalog-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 10px 30px rgba(163, 122, 82, 0.03);
+            transition: all 0.4s var(--smooth);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .catalog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(163, 122, 82, 0.1);
+        }
+
+        .catalog-img-box {
+            height: 280px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #f0ebe3;
+        }
+        @media (min-width: 768px) {
+            .catalog-img-box { height: 340px; }
+        }
+        .catalog-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.6s var(--smooth);
+        }
+        .catalog-card:hover .catalog-img-box img {
+            transform: scale(1.06);
+        }
+
+        .catalog-tag {
+            position: absolute;
+            top: 15px; left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--text-dark);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .catalog-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .catalog-info h5 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .price-tag {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        /* --- CTA Whatsapp --- */
+        .cta-section {
+            background: linear-gradient(135deg, #2c221e 0%, #1a1412 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .cta-section { padding: 70px 40px; border-radius: 40px; }
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 30px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            transition: all 0.4s var(--smooth);
+            text-decoration: none;
+        }
+        .btn-whatsapp:hover {
+            background-color: #20ba59;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #f3ede2;
+            padding: 50px 0 30px 0;
+            color: #61534d;
+        }
+        
+        .footer-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all 0.3s var(--smooth);
+        }
+        .footer-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./Assets/Logo.png" alt="Nusantara Attire" width="28" height="28" class="me-2" style="object-fit: contain; filter: brightness(0) invert(1);">
+                Nusantara Attire
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center pt-3 pt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#keunggulan">Keunggulan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#katalog">Katalog</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-contact-us" href="https://wa.me/6282132000026?text=Halo%20Nusantara%20Attire,%20saya%20ingin%20tanya%20info%20sewa%20baju" target="_blank">Hubungi Kami</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="hero-section">
+        <div class="container-fluid p-0">
+            <div class="row g-0 align-items-center position-relative">
+                
+                <div class="col-lg-7 hero-left-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-9 offset-xl-1 col-lg-11 px-4 text-center text-lg-start" data-aos="fade-right" data-aos-duration="1200">
+                                <h1 class="hero-title mb-3">
+                                    Lestarikan Budaya, Raih Cita Bersama <span>Nusantara Attire</span>
+                                </h1>
+                                <p class="hero-text mb-4">
+                                    Penyedia jasa sewa baju adat nusantara terlengkap dan pakaian profesi anak/dewasa berkualitas tinggi. Tampil anggun, premium, dan estetik di setiap momen berharga Anda.
+                                </p>
+                                <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2">
+                                    <a href="#katalog" class="btn btn-dark-pill">Jelajahi Katalog</a>
+                                    <a href="https://wa.me/6282132000026?text=Halo%20Admin%20Nusantara%20Attire,%20saya%20mau%20konsultasi%20mengenai%20ukuran%20baju%20sewa." target="_blank" class="btn btn-outline-pill">Tanya Ukuran</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 hero-right-badge-container text-center" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="logo-display-container">
+                        <img src="./Assets/Logo2.png" alt="Nusantara Attire Logo Large">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="keunggulan" class="py-5" style="background-color: #fff;">
+        <div class="container py-3">
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title">Mengapa Memilih Kami?</h2>
+                <p class="text-muted small px-3">Kami memastikan setiap detail pakaian dirawat dengan standar tertinggi demi kenyamanan Anda.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon-box">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h5 class="fw-semibold mb-2">Kualitas Premium</h5>
+                        <p class="text-muted small mb-0">Bahan kain pilihan, payet eksklusif, dan jahitan rapi yang nyaman digunakan sepanjang hari.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon-box">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h5 class="fw-semibold mb-2">Higienis & Bersih</h5>
+                        <p class="text-muted small mb-0">Setiap pakaian melalui proses pencucian laundry khusus secara steril sebelum dan sesudah disewa.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon-box">
+                            <i class="bi bi-tags"></i>
+                        </div>
+                        <h5 class="fw-semibold mb-2">Kelengkapan Aksesoris</h5>
+                        <p class="text-muted small mb-0">Harga sewa sudah termasuk kelengkapan aksesoris kepala, sabuk, kalung, hingga hiasan pelengkap.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="katalog" class="py-5">
+        <div class="container py-3">
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title">Katalog Koleksi</h2>
+                <p class="text-muted small px-3">Temukan berbagai pilihan pakaian adat anak, baju profesi anak, dan baju adat dewasa impian Anda.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="catalog-card">
+                        <div class="catalog-img-box">
+                            <span class="catalog-tag">Baju Adat Anak</span>
+                            <img src="https://images.unsplash.com/photo-1658231718224-b1df639cb8e9?q=80&w=600&auto=format&fit=crop" alt="Baju Adat Anak - Beskap Jawa">
+                        </div>
+                        <div class="catalog-info">
+                            <h6 class="text-muted small mb-1" style="letter-spacing: 1px; font-size: 11px;">JAWA TENGAH</h6>
+                            <h5>Beskap Jawa</h5>
+                            <p class="text-muted small flex-grow-1" style="font-size: 13px; line-height: 1.6;">Koleksi Beskap Jawa tradisional anak berkualitas premium. Terbuat dari bahan katun halus bermotif klasik asli yang adem, tidak kaku, serta sangat nyaman untuk menunjang penampilan bersahaja si kecil di acara formal atau festival budaya sekolah.</p>
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
+                                <span class="price-tag" style="font-size: 16px;">Rp 120.000 <small class="text-muted fw-normal" style="font-size:10px;">/hari</small></span>
+                                <span class="badge bg-success-subtle text-success rounded-pill px-2.5 py-1" style="font-size:11px;">Tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="catalog-card">
+                        <div class="catalog-img-box">
+                            <span class="catalog-tag">Baju Profesi Anak</span>
+                            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=600&auto=format&fit=crop" alt="Baju Profesi Anak - Polisi">
+                        </div>
+                        <div class="catalog-info">
+                            <h6 class="text-muted small mb-1" style="letter-spacing: 1px; font-size: 11px;">APARAT NEGARA</h6>
+                            <h5>Polisi</h5>
+                            <p class="text-muted small flex-grow-1" style="font-size: 13px; line-height: 1.6;">Paket seragam profesi POLRI cilik premium untuk anak-anak. Desain jahitan dirancang detail, presisi, dan akurat, lengkap dengan atribut pelengkap seperti topi pet resmi, emblem bordir, sabuk kopel, serta aksesoris mainan edukatif yang berwibawa.</p>
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
+                                <span class="price-tag" style="font-size: 16px;">Rp 95.000 <small class="text-muted fw-normal" style="font-size:10px;">/hari</small></span>
+                                <span class="badge bg-success-subtle text-success rounded-pill px-2.5 py-1" style="font-size:11px;">Tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="catalog-card">
+                        <div class="catalog-img-box">
+                            <span class="catalog-tag">Baju Adat Dewasa</span>
+                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=600&auto=format&fit=crop" alt="Baju Adat Dewasa - Bali">
+                        </div>
+                        <div class="catalog-info">
+                            <h6 class="text-muted small mb-1" style="letter-spacing: 1px; font-size: 11px;">BALI</h6>
+                            <h5>Bali</h5>
+                            <p class="text-muted small flex-grow-1" style="font-size: 13px; line-height: 1.6;">Set busana mewah pakaian tradisional Bali (Payas Agung) ukuran dewasa. Menghadirkan pesona kain tenun prada eksklusif dengan corak keemasan yang menawan, dipadukan lengkap bersama mahkota kepala gelungan ikonis serta aksesoris etnik berestetika tinggi.</p>
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
+                                <span class="price-tag" style="font-size: 16px;">Rp 275.000 <small class="text-muted fw-normal" style="font-size:10px;">/hari</small></span>
+                                <span class="badge bg-success-subtle text-success rounded-pill px-2.5 py-1" style="font-size:11px;">Tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="container mb-5" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="cta-section text-center">
+            <h2 class="fs-3 mb-3 fw-bold" style="font-family: var(--font-serif);">Tertarik Menggunakan Layanan Kami?</h2>
+            <p class="mx-auto mb-4 text-white-50 px-2" style="max-width: 600px; font-size: 14px; font-weight: 300; line-height: 1.6;">
+                Konsultasikan kebutuhan ukuran (*size chart*), ketersediaan tanggal acara, atau kustomisasi aksesoris langsung melalui WhatsApp messenger kami secara gratis.
+            </p>
+            <a href="https://wa.me/6282132000026?text=Halo%20Nusantara%20Attire,%20saya%20tertarik%20untuk%20melihat%20koleksi%20dan%20melakukan%20reservasi%20sewa%20baju." target="_blank" class="btn btn-whatsapp">
+                <i class="bi bi-whatsapp"></i> Hubungi via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container px-4">
+            <img src="./Assets/Logo.png" alt="Nusantara Attire" width="46" height="46" class="mb-3" style="object-fit: contain;">
+            <h4 class="font-serif fw-bold mb-2" style="color: var(--text-dark); letter-spacing: 0.5px; font-size: 1.3rem;">Nusantara Attire</h4>
+            <p class="small text-muted mb-4 px-3">Sewa Pakaian Adat & Profesi. Keanggunan Budaya dalam Genggaman.</p>
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <a href="https://wa.me/6282132000026" target="_blank" class="footer-icon"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://www.instagram.com/nusantaraattire?igsh=c2x6MG81cWFkOXZo" target="_blank" class="footer-icon"><i class="bi bi-instagram"></i></a>
+            </div>
+            <hr style="opacity: 0.08; max-width: 400px; margin: 0 auto 20px auto;">
+            <p class="text-muted mb-0" style="font-size: 11px; letter-spacing: 0.5px;">&copy; 2026 <strong>by wader5792</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true 
+        });
+    </script>
+</body>
+</html>
